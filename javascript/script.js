@@ -9,12 +9,16 @@
 //AVEVO VOGLIA DI SPERIMENTARE CON LE CLASSI NON VOLETEMENE ❤
 class Member {
   constructor(fullname, position, image) {
-    this.name = fullname.split(" ")[0];
-    this.lastName = fullname.split(" ")[1];
     this.fullname = fullname;
     this.position = position;
-    this.image = "../img/" + image;
-  }
+    this.image = "img/" + image;
+    }
+    get name() {
+       return this.fullname.split(" ")[0]
+    }
+    get lastName() {
+        return fullname.split(" ")[1]
+    }
 }
 
 const team = [];
@@ -29,15 +33,23 @@ team.push(new Member("Scott Estrada", "Developer", "scott-estrada-developer.jpg"
 team.push(new Member("Barbara Ramos", "Graphic Designer", "barbara-ramos-graphic-designer.jpg"));
 
 //MILESTONE 1
+// console.log(team)
+// const listElement = document.querySelector('.about-us > ul');
+// for (element of team) {
+//     const listItem = document.createElement("li");
+//     listItem.append(`${element.fullname}, ${element.position}, ${element.image}`)
+//     listElement.append(listItem)
+// }
+//MILESTONE 2
 console.log(team)
-const listElement = document.querySelector('.about-us-1 > ul');
+const listElement = document.querySelector('.about-us > ul');
 for (element of team) {
     const listItem = document.createElement("li");
-    listItem.append(`${element.fullname}, ${element.position}, ${element.image}`)
+    listItem.innerHTML = 
+        `
+        <img src="${element.image}" alt="">
+                <p class="name">${element.fullname}</p>
+                <p class="position">${element.position}</p>
+        `
     listElement.append(listItem)
 }
-
-//MILESTONE 2
-
-
-
